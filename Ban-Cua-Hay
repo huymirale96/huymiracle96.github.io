@@ -1,0 +1,281 @@
+<HTML>
+
+<HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+    <TITLE>注文ページ&個人情報入力</TITLE>
+    <style>
+        .noneDisplay {
+            display: none;
+        }
+    </style>
+    <!-- 右クリック禁止 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).on('change', '.stage', function (e) {
+            var amount = $(this).val();
+            //  e.preventDefault();            
+            var price = $(this).closest('tr').find("td:eq(2)").text();
+            var totalForThisProduct = price * amount;
+            var totalForThisProduct = price * amount;
+            $(this).closest('tr').find("td:eq(4)").text(totalForThisProduct.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
+                + " ￥");
+            $(this).closest('tr').find("td:eq(5)").text(totalForThisProduct);
+            console.log(price + " -  " + amount);
+            // Find total money
+            var total = 0;
+            var table = $("table tbody");
+            table.find('tr').each(function (i) {
+                var $tds = $(this).find('td'),
+                    value = $tds.eq(5).text();
+                total += isNaN(parseInt(value)) ? 0 : parseInt(value);
+                var lastTr = $("table tbody").find('tr').last();
+                lastTr.find("td:eq(1)").text(total.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
+                    + " ￥");
+            });
+            console.log("total : " + total);
+
+        });
+
+    </script>
+
+    <SCRIPT type=text/javascript><!--function right(e) {if (( navigator.appName == 'Netscape' )&& ((e.which ==
+3 )||( e.which == 2 ))) {alert("右クリックは禁止です！");return false ;}else if (( navigator.appName == 'Microsoft Internet
+Explorer' )&&(( event.button == 2 )||( event.button == 3 ))) {alert("右クリックは禁止です！");return false ;}return
+true ;}document.onmousedown = right ;if ( document.layers )
+{window.captureEvents( Event.MOUSEDOWN ) ;}window.onmousedown=right ;//--></SCRIPT>
+    <!-- 右クリック禁止ここまで -->
+</HEAD>
+
+<body background="13.png" text="black">
+    <table bgcolor="white" 　boder="0" align="center" width="500" id="table1">
+        <tr>
+            <td>
+                <marquee>
+                    <font color="darkblue">
+                        <h1>注文ページ&個人情報入力</h1>
+                    </font>
+                </marquee>
+            </td>
+        </tr>
+    </table><BR><BR><BR>
+    <CENTER>
+        <FORM>
+            氏名:<input type="text" NAME="ID" SIZE="50" MAXLENGTH="10" VALUE="漢字またカタカナで入れる" onclick="if(this.value='漢字またカタカナで入れる')this.value='';
+" onblur="if(this.value='')this.value='漢字またカタカナで入れる';"><BR><BR>
+            生年月日:<input type="text" NAME="birthday" SIZE="45" NAXLENGTH="15"><BR><BR>
+            住所:<input type="text" NAME="address" SIZE="50" NAXLENGTH="30"><BR><BR>
+            電話番号:<input type="text" NAME="tel" SIZE="45" NAXLENGTH="15"><BR><BR>
+            メールアドレス:<input type="text" NAME="password" SIZE="38" NAXLENGTH="40"><BR><BR><BR><BR>
+            <HR>
+            <table align="CENTER" bgcolor="white" border="1" width="1000"><BR><BR>
+                <thead>
+                    <TR>
+                        <TH align="center" height="40"><B>商品名　</B></TH>
+                        <TH align="center" height="40"><B>値段(税込)　</B></TH>
+                        <TH align="center" height="40"><B>個　</B></TH>
+                        <TH align="right" height="40"><B>金額　</TH></B>
+                    </TR>
+                </thead>
+                <tbody>
+                    <TR>
+                        <TD>M61182 ルイ・ヴィトン　モノグラム・アンプラント　ポルトフォイユ・サラ　ノワール　</TD>
+                        <TD>￥128,000</TD>
+                        <TD class="noneDisplay">128000</TD>
+                        <TD>
+                            <SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0"> 0
+                                <OPTION VALUE="1"> 1
+                                <OPTION VALUE="2" 　> 2
+                                <OPTION VALUE="3" 　> 3
+                                <OPTION VALUE="4"> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT></TD>
+                        <TD>
+                            ￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>M62472 ルイ・ヴィトン　メンズ レディース ユニセックス　三つ折り財布　</TD>
+                        <TD>￥94,400　</TD>
+                        <TD class="noneDisplay">94400</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>M44593 ルイ・ヴィトン　モノグラム・アンプラント　サントンジュ　ノワール　</TD>
+                        <TD>￥275,500　</TD>
+                        <TD class="noneDisplay">275500</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>M44543 ルイ・ヴィトン　モノグラム　リボリー PM　</TD>
+                        <TD>￥222,600　</TD>
+                        <TD class="noneDisplay">222600</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>443436 DTD1T 1000 GGマーモント レディース 長財布　</TD>
+                        <TD>￥89,800　</TD>
+                        <TD class="noneDisplay">89800</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>546580 DTD1T 6433 GGマーモント 折財布 レディース レッド　</TD>
+                        <TD>￥79,800　</TD>
+                        <TD class="noneDisplay">79800</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>446744 DTDIT 1000 グッチ ミニショルダーバッグ GGマーモント キルティング ブラック NERO　</TD>
+                        <TD>￥204,800　</TD>
+                        <TD class="noneDisplay">204800</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>547551 K05NB 8745 GG スモールサイズ ハンドバッグ ショルダーバッグ ベージュ　</TD>
+                        <TD>￥160,200　</TD>
+                        <TD class="noneDisplay">160200</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>エルメス2つ折り長財布小銭入れ付き　</TD>
+                        <TD>￥345,000　</TD>
+                        <TD class="noneDisplay">345000</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>エルメス二つ折り財布（コインケース付）コンスタンスコンパクト レディース/メンズ　</TD>
+                        <TD>￥354,100　</TD>
+                        <TD class="noneDisplay">354100</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>エルメスバッグ ミニコンスタンス モーヴ・シルベストル エプソン シルバー金具 ショルダーバッグ　</TD>
+                        <TD>￥1,841,900　</TD>
+                        <TD class="noneDisplay">1841900</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+                    <TR>
+                        <TD>エルメスケリー25 内縫い ハンドバッグ　</TD>
+                        <TD>￥2,373,000　</TD>
+                        <TD class="noneDisplay">2373000</TD>
+                        <TD><SELECT NAME="ko" class="stage">
+                                <OPTION VALUE="0" 　SELECTED> 0
+                                <OPTION VALUE="1" 　SELECTED> 1
+                                <OPTION VALUE="2" 　SELECTED> 2
+                                <OPTION VALUE="3" 　SELECTED> 3
+                                <OPTION VALUE="4" 　SELECTED> 4
+                                <OPTION VALUE="5" 　SELECTED> 5
+                            </SELECT>　</TD>
+                        <TD>￥</TD>
+                        <TD class="noneDisplay">0</TD>
+                    </TR>
+
+                    <TR>
+                        <TD colspan="3" align="left" bgcolor="yellow" height="50"><B>合計　</B></TD>
+                        <TD align="left" bgcolor="yellow" height="50"><B>￥　</B></TD>
+                    </TR>
+                </tbody>
+            </TABLE><br><br><br><br><br>
+            <INPUT TYPE="image" SRC="15.jpg" NAME="BUY BUTTON" WIDTH="150" HEIGH="90"><br><br><br><br>
+            <FONT SIZE="5">
+        </FORM>
+        <CENTER>
+            <LI><A HREF="Top.html" target="Top">ホームページへ戻る</A><BR>
+                <A HREF="mail to:Phuongyen3210@gmail.com">私のメールアドレス Phuongyen3210@gmail.com</A><BR>
+                <B>星城大学</B><BR></FONT>
+                <FONT SIZE="4" COLOR="#FF0080">
+                    大学のTEL:077-533-3844　</FONT><BR>
+        </CENTER>
+</BODY>
+
+</HTML>
